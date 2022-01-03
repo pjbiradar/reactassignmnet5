@@ -18,7 +18,7 @@ export default function AddandEdit() {
 
     }, [])
     const usersdata = () => {
-        const y = data.filter((val) => val.Id == id).map((vall) => setName(vall))
+        const y = data.filter((val) => val.Id === id).map((vall) => setName(vall))
 
     }
 
@@ -33,13 +33,13 @@ export default function AddandEdit() {
 
     }
     const handle = (e) => {
-        if (name.Name, name.Age, name.Batch, name.Course == '') {
+        if (name.Name, name.Age, name.Batch, name.Course === '') {
             alert("pls fill the data")
         }
         else {
             
-            if (!id == '') {
-                setData((prev) => prev.map((nam) => (nam.Id == id) ? {
+            if (!id === '') {
+                setData((prev) => prev.map((nam) => (nam.Id === id) ? {
                     'Id': id,
                     "Name": name.Name,
                     "Age": name.Age,
@@ -71,7 +71,7 @@ export default function AddandEdit() {
                 <input id='batch' type={'text'} className='threea' onChange={first} name='Batch' value={name.Batch} /> <br></br>
                 <label className='four'><h3>COURSE</h3></label>
                 <input id='course' type={'text'} className='foura' onChange={first} name='Course' value={name.Course} /> <br></br>
-                <input type={'button'} id='button' className='sub' value= { id==undefined?'submit':'update'} 
+                <input type={'button'} id='button' className='sub' value= { id===undefined?'submit':'update'} 
                  onClick={handle} name='button' />
                 <input type={'button'} className='can' id='button' value={'cancel'} onClick={() => k('/students')} name='button' />
 
