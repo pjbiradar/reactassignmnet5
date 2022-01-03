@@ -12,17 +12,18 @@ export default function AddandEdit() {
         Course: ''
     });
     const { id } = useParams();
+    const [data, setData] = useContext(CreateCont);
+
 
     useEffect(() => {
-        usersdata()
+        data.filter((val) => val.Id === id).map((vall) => setName(vall))
 
-    }, [])
-    const usersdata = () => {
-        const y = data.filter((val) => val.Id === id).map((vall) => setName(vall))
 
-    }
 
-    const [data, setData] = useContext(CreateCont);
+
+    }, [data,id])
+    
+
     const k = useNavigate();
 
     const first = (e) => {
@@ -33,12 +34,12 @@ export default function AddandEdit() {
 
     }
     const handle = (e) => {
-        if (name.Name, name.Age, name.Batch, name.Course === '') {
+        if (name.Name ===''|| name.Age === ''|| name.Batch=== '' || name.Course === '') {
             alert("pls fill the data")
         }
         else {
             
-            if (!id === '') {
+            if (id!== undefined) {
                 setData((prev) => prev.map((nam) => (nam.Id === id) ? {
                     'Id': id,
                     "Name": name.Name,
@@ -55,6 +56,8 @@ export default function AddandEdit() {
             }
 
         }
+        k('/students')
+
 
 
     }
@@ -66,7 +69,7 @@ export default function AddandEdit() {
                 <label className='one'><h3>NAME</h3></label>
                 <input id='name' type={'text'} className='onea' onChange={first} name='Name' value={name.Name} /> <br></br>
                 <label className='two'><h3>AGE</h3></label>
-                <input id='age' type={'text'} className='twoa' onChange={first} name='Age' value={name.Age} /> <br></br>
+                <input id='age' type={'number'} className='twoa' onChange={first} name='Age' value={name.Age} /> <br></br>
                 <label className='three'><h3>BATCH</h3></label>
                 <input id='batch' type={'text'} className='threea' onChange={first} name='Batch' value={name.Batch} /> <br></br>
                 <label className='four'><h3>COURSE</h3></label>

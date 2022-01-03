@@ -11,7 +11,7 @@ import React, {useContext } from 'react'
 
 
 export default function Students() {
-const [data, setData] = useContext(CreateCont);
+const [data] = useContext(CreateCont);
 
     const assign=useNavigate();
 
