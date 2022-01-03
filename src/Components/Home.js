@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './Style.css'
-import Header from './Header'
 
 export default class Home extends Component {
     render() {
